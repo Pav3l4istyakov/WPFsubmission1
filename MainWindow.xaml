@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFsubmission1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+       Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
         <local:DateToColorConverter x:Key="DateToColorConverter"/>
         <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
@@ -30,7 +30,7 @@
         </Button>
 
         <ListBox Grid.Row="1" Margin="5" Name="TaskListListBox" ItemsSource="{Binding TodoList}"
-                HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListBoxItemStyle}">
+                 HorizontalContentAlignment="Stretch" ItemContainerStyle="{StaticResource ListBoxItemStyle}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -39,12 +39,14 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <CheckBox Grid.Column="0" IsChecked="{Binding Doing, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1" Text="{Binding Title}" TextWrapping="Wrap" FontSize="12"/>
-                        <TextBlock Grid.Column="2" Text="{Binding DueDate, StringFormat=d}" TextWrapping="Wrap" FontSize="12">
+                        <TextBlock Grid.Column="2" Text="{Binding Description}" TextWrapping="Wrap" FontSize="12" Foreground="Gray"/>
+                        <TextBlock Grid.Column="3" Text="{Binding DueDate, StringFormat=d}" TextWrapping="Wrap" FontSize="12">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Style.Triggers>
@@ -64,7 +66,7 @@
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-                        <Button Grid.Column="3" Click="DeleteButton_Click" Padding="0" Background="#5EBEC4">
+                        <Button Grid.Column="4" Click="DeleteButton_Click" Padding="0" Background="#5EBEC4">
                             <Image Source="Image/delete.png" Width="16" Height="16" Stretch="Uniform" />
                         </Button>
                     </Grid>
