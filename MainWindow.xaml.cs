@@ -32,13 +32,13 @@ namespace WPFsubmission1
 
             foreach (var todo in TodoList)
             {
-                todo.PropertyChanged += TodoItem_PropertyChanged;
+                todo.PropertyChanged += TodoItemPropertyChanged;
             }
 
             UpdateProgress();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void AddButtonClick(object sender, RoutedEventArgs e)
         {
             NewTaskWindow addToDoWindow = new NewTaskWindow();
             addToDoWindow.Owner = this;
@@ -46,14 +46,14 @@ namespace WPFsubmission1
 
             foreach (var todo in TodoList)
             {
-                todo.PropertyChanged -= TodoItem_PropertyChanged;
-                todo.PropertyChanged += TodoItem_PropertyChanged;
+                todo.PropertyChanged -= TodoItemPropertyChanged;
+                todo.PropertyChanged += TodoItemPropertyChanged;
             }
 
             UpdateProgress();
         }
 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             ToDo itemToRemove = button.DataContext as ToDo;
@@ -64,7 +64,7 @@ namespace WPFsubmission1
             }
         }
 
-        private void TodoItem_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void TodoItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(ToDo.Doing))
             {

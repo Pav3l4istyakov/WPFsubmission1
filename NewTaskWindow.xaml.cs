@@ -24,7 +24,7 @@ namespace WPFsubmission1
             InitializeComponent();
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveButtonClick(object sender, RoutedEventArgs e)
         {
             string title = TitleTextBox.Text.Trim();
             DateTime? dueDate = DueDatePicker.SelectedDate;
